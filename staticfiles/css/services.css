@@ -1,0 +1,71 @@
+/* ══════════════════════════════════
+   SERVICES PAGE
+══════════════════════════════════ */
+.services-section { align-items: flex-start; padding-top: 50px; }
+.services-container { width: 88%; max-width: 1200px; }
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px;
+  margin-bottom: 2rem;
+}
+.service-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(204,0,0,0.18);
+  padding: 30px 25px;
+  border-radius: 16px;
+  transition: 0.3s;
+  border-top: 3px solid var(--red);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  backdrop-filter: blur(4px);
+}
+.service-card:hover { transform: translateY(-7px); box-shadow: 0 12px 28px rgba(204,0,0,0.2); }
+.service-icon {
+  width: 55px; height: 55px;
+  background: linear-gradient(135deg, var(--red), var(--red-dark));
+  border-radius: 14px;
+  display: flex; align-items: center; justify-content: center;
+}
+.service-icon i { font-size: 1.5rem; color: white; }
+.service-card h3 { font-size: 1.1rem; color: var(--white); }
+.service-card > p { font-size: 0.88rem; color: rgba(255,255,255,0.6); line-height: 1.6; }
+.service-list { list-style: none; display: flex; flex-direction: column; gap: 6px; margin: 0; padding: 0; }
+.service-list li { font-size: 0.85rem; color: rgba(255,255,255,0.6); display: flex; align-items: center; gap: 8px; }
+.service-list li i { color: var(--red); font-size: 0.8rem; }
+.service-btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background: linear-gradient(135deg, var(--red), var(--red-dark));
+  color: white;
+  text-decoration: none;
+  border-radius: 25px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  text-align: center;
+  margin-top: auto;
+  transition: 0.3s;
+}
+.service-btn:hover { opacity: 0.88; transform: scale(1.03); }
+
+.pricing-note {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(204,0,0,0.08);
+  border: 1px solid rgba(204,0,0,0.25);
+  border-radius: 12px;
+  padding: 16px 24px;
+  color: rgba(255,255,255,0.7);
+  font-size: 0.9rem;
+}
+.pricing-note i { color: var(--red); font-size: 1.3rem; flex-shrink: 0; }
+.pricing-note a { color: var(--red); font-weight: 600; text-decoration: none; }
+.pricing-note a:hover { text-decoration: underline; }
+
+@media (max-width: 884px) {
+  .services-grid { grid-template-columns: 1fr; }
+  .services-container { width: 95%; }
+}

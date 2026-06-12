@@ -1,0 +1,161 @@
+/* ══════════════════════════════════
+   HOME PAGE
+══════════════════════════════════ */
+.home-section {
+  min-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.main-container {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 40px 20px;
+  gap: 40px;
+}
+
+/* ── FOTO ── */
+.main-container .image {
+  width: 300px;
+  flex-shrink: 0;
+}
+.main-container .image img {
+  width: 100%;
+  height: 380px;
+  object-fit: cover;
+  object-position: center top;
+  border-radius: 16px;
+  box-shadow:
+    0 0 0 3px var(--red),
+    0 16px 50px rgba(204,0,0,0.45),
+    0 4px 20px rgba(0,0,0,0.6);
+  display: block;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+.main-container .image img:hover {
+  transform: scale(1.03) translateY(-4px);
+  box-shadow:
+    0 0 0 3px var(--red-light),
+    0 24px 60px rgba(204,0,0,0.6),
+    0 6px 25px rgba(0,0,0,0.7);
+}
+
+/* ── CONTENT ── */
+.main-container .content { color: var(--light); width: 42%; }
+
+.content h1 { font-size: clamp(1.5rem, 3vw + 1rem, 3.2rem); margin-bottom: 0.5rem; }
+.content h1 span { color: var(--red); }
+
+.content .typewriter { font-weight: 600; font-size: clamp(1rem, 2vw, 1.8rem); margin-bottom: 1rem; color: rgba(255,255,255,0.85); }
+.content .typewriter span { color: var(--red); font-size: 1.8rem; position: relative; }
+.typewriter span::before { content: "Developer"; animation: words 12s infinite; }
+.typewriter span::after {
+  content: "";
+  position: absolute;
+  width: calc(100% + 8px);
+  height: 100%;
+  border-left: 3px solid var(--red);
+  animation: cursor 0.6s linear infinite;
+}
+@keyframes cursor { to { border-left: 3px solid transparent; } }
+@keyframes words {
+  0%,33%   { content: "Developer"; }
+  34%,66%  { content: "Designer"; }
+  67%,100% { content: "Youtuber"; }
+}
+
+.content p { font-size: 1rem; margin: 8px 0 12px; color: rgba(255,255,255,0.65); }
+
+.social-links { margin: 12px 0; }
+.social-links i {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 2.8rem;
+  height: 2.8rem;
+  border: 2px solid rgba(204,0,0,0.5);
+  border-radius: 50%;
+  color: rgba(255,255,255,0.7);
+  margin: 4px 8px 4px 0;
+  font-size: 1.3rem;
+  transition: 0.25s;
+  cursor: pointer;
+}
+.social-links i:hover {
+  scale: 1.2;
+  color: var(--white);
+  background: var(--red);
+  border-color: var(--red);
+  box-shadow: 0 0 18px rgba(204,0,0,0.6);
+}
+
+.content .btn button {
+  padding: 12px 30px;
+  margin: 20px 0;
+  background: linear-gradient(135deg, var(--red), var(--red-dark));
+  color: white;
+  border: none;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: 0.3s;
+  box-shadow: 0 4px 15px rgba(204,0,0,0.45);
+}
+.content .btn button:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(204,0,0,0.65); }
+
+.scroll-hint {
+  position: absolute;
+  bottom: 25px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  color: rgba(204,0,0,0.6);
+  font-size: 0.8rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+.bounce { animation: bounce 1.5s infinite; }
+@keyframes bounce {
+  0%,100% { transform: translateY(0); }
+  50%      { transform: translateY(6px); }
+}
+
+/* ══════════════════════════════════
+   RESPONSIVE — HOME
+══════════════════════════════════ */
+@media (max-width: 884px) {
+  .main-container {
+    flex-direction: column;
+    padding: 80px 20px 40px;
+    gap: 30px;
+  }
+  .main-container .image {
+    width: 75%;
+    max-width: 280px;
+  }
+  .main-container .image img {
+    height: 340px;
+  }
+  .main-container .content {
+    width: 100%;
+    text-align: center;
+  }
+  .social-links { display: flex; justify-content: center; flex-wrap: wrap; }
+  .content .btn { display: flex; justify-content: center; }
+}
+
+@media (max-width: 480px) {
+  .main-container .image { max-width: 220px; }
+  .main-container .image img { height: 280px; }
+  .content h1 { font-size: 1.8rem; }
+  .content .typewriter { font-size: 1rem; }
+  .content .typewriter span { font-size: 1rem; }
+}
