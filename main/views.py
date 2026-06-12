@@ -13,7 +13,7 @@ def skills(request):
         {'icon': 'fa-brands fa-js',       'name': 'JavaScript',      'level': 75},
         {'icon': 'fa-brands fa-python',   'name': 'Python / Django', 'level': 70},
         {'icon': 'fa-brands fa-php',      'name': 'PHP / Laravel',   'level': 65},
-        {'icon': 'fa-solid fa-database',  'name': 'SQL / MySQL',     'level': 72},
+        {'icon': 'fa-solid fa-shield-halved', 'name': 'Cyber Security', 'level': 70},
     ]
     skill_cards = [
         {'icon': 'fa-brands fa-html5',    'name': 'HTML5',          'desc': 'Semantic markup, accessibility, dan struktur halaman yang solid.'},
@@ -21,7 +21,7 @@ def skills(request):
         {'icon': 'fa-brands fa-js',       'name': 'JavaScript',     'desc': 'ES6+, DOM manipulation, async/await, dan fetch API.'},
         {'icon': 'fa-brands fa-python',   'name': 'Python & Django','desc': 'Backend development, ORM, REST API, dan Django templates.'},
         {'icon': 'fa-brands fa-php',      'name': 'PHP & Laravel',  'desc': 'MVC pattern, Eloquent ORM, Blade templating, dan routing.'},
-        {'icon': 'fa-solid fa-database',  'name': 'MySQL & SQLite', 'desc': 'Query optimization, relasi tabel, migrasi, dan database design.'},
+        {'icon': 'fa-solid fa-shield-halved','name':'Cyber Security','desc': 'Memahami keamanan aplikasi web, vulnerability assessment, penetration testing dasar, dan penerapan praktik keamanan yang baik.'},
         {'icon': 'fa-brands fa-react',    'name': 'React (Basic)',  'desc': 'Component-based UI, hooks, dan state management dasar.'},
         {'icon': 'fa-brands fa-git-alt',  'name': 'Git & GitHub',   'desc': 'Version control, branching, pull request, dan kolaborasi tim.'},
     ]
@@ -32,7 +32,7 @@ def services(request):
         {'icon': 'fa-solid fa-code',       'title': 'Web Development',   'desc': 'Membangun website modern, cepat, dan responsif menggunakan HTML, CSS, JavaScript, Django, maupun Laravel sesuai kebutuhanmu.', 'items': ['Company Profile', 'Landing Page', 'Web Application']},
         {'icon': 'fa-solid fa-paintbrush', 'title': 'UI/UX Design',      'desc': 'Merancang tampilan antarmuka yang menarik, intuitif, dan memberikan pengalaman pengguna yang menyenangkan.',            'items': ['Wireframing', 'Mockup Design', 'Prototyping']},
         {'icon': 'fa-solid fa-mobile-screen','title': 'Responsive Design','desc': 'Memastikan website kamu tampil sempurna di semua perangkat, mulai dari desktop, tablet, hingga smartphone.',             'items': ['Mobile-first', 'Cross-browser', 'Performance Optimization']},
-        {'icon': 'fa-solid fa-server',     'title': 'Backend Development','desc': 'Mengembangkan sistem backend yang kuat, API RESTful, dan manajemen database untuk mendukung aplikasimu.',              'items': ['REST API', 'Database Design', 'Authentication System']},
+       {'icon': 'fa-solid fa-shield-halved', 'title': 'Cyber Security', 'desc': 'Membantu melindungi website dan aplikasi dari berbagai ancaman keamanan siber melalui analisis, pengujian, dan penerapan praktik keamanan terbaik.','items': [ 'Vulnerability Assessment',  'Security Audit', 'Web Application Security' ]},
         {'icon': 'fa-solid fa-magnifying-glass-chart','title': 'SEO Optimization','desc': 'Meningkatkan visibilitas websitemu di mesin pencari dengan teknik SEO on-page yang telah terbukti efektif.', 'items': ['Meta Optimization', 'Page Speed', 'Structured Data']},
         {'icon': 'fa-solid fa-headset',    'title': 'Tech Consulting',   'desc': 'Memberikan saran teknis strategis untuk membantu bisnismu memilih teknologi dan stack yang tepat.',                     'items': ['Tech Stack Advisory', 'Code Review', 'Project Planning']},
     ]
