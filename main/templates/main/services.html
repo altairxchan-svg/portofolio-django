@@ -1,0 +1,35 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}Services - Khikam{% endblock %}
+{% block extra_css %}<link rel="stylesheet" href="{% static 'css/services.css' %}" />{% endblock %}
+
+{% block content %}
+<section class="page-section services-section">
+  <div class="services-container">
+    <h2 class="section-title" data-aos="fade-down">My <span>Services</span></h2>
+    <p class="section-sub" data-aos="fade-up">Apa yang bisa saya kerjakan untuk kamu</p>
+
+    <div class="services-grid">
+      {% for service in services %}
+      <div class="service-card" data-aos="flip-left" data-aos-delay="{{ forloop.counter }}00">
+        <div class="service-icon"><i class="{{ service.icon }}"></i></div>
+        <h3>{{ service.title }}</h3>
+        <p>{{ service.desc }}</p>
+        <ul class="service-list">
+          {% for item in service.items %}
+          <li><i class="fa-solid fa-check"></i> {{ item }}</li>
+          {% endfor %}
+        </ul>
+        <a href="{% url 'contact' %}" class="service-btn">Pesan Sekarang</a>
+      </div>
+      {% endfor %}
+    </div>
+
+    <div class="pricing-note" data-aos="fade-up" data-aos-delay="300">
+      <i class="fa-solid fa-circle-info"></i>
+      <p>Harga disesuaikan dengan kebutuhan project. <a href="{% url 'contact' %}">Hubungi saya</a> untuk diskusi lebih lanjut!</p>
+    </div>
+  </div>
+</section>
+{% endblock %}

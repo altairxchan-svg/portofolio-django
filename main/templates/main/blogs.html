@@ -1,0 +1,56 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}Blogs - Khikam{% endblock %}
+{% block extra_css %}<link rel="stylesheet" href="{% static 'css/blogs.css' %}" />{% endblock %}
+
+{% block content %}
+<section class="page-section blogs-section">
+  <div class="blogs-container">
+    <h2 class="section-title" data-aos="fade-down">Latest <span>Blogs</span></h2>
+    <p class="section-sub" data-aos="fade-up">Tulisan, tutorial, dan cerita seputar dunia coding</p>
+
+    <div class="blog-filters" data-aos="fade-up" data-aos-delay="100">
+      <button class="filter-btn active" onclick="filterBlog('all', this)">Semua</button>
+      <button class="filter-btn" onclick="filterBlog('webdev', this)">Web Dev</button>
+      <button class="filter-btn" onclick="filterBlog('css', this)">CSS</button>
+      <button class="filter-btn" onclick="filterBlog('javascript', this)">JavaScript</button>
+      <button class="filter-btn" onclick="filterBlog('python', this)">Python</button>
+    </div>
+
+    <div class="blogs-grid" id="blogsGrid">
+      {% for blog in blogs %}
+      <div class="blog-card" data-category="{{ blog.category }}" data-aos="fade-up" data-aos-delay="{{ forloop.counter }}00">
+        <div class="blog-img-wrap">
+          <div class="blog-img-placeholder {{ blog.category }}">
+            <i class="{{ blog.icon }}"></i>
+          </div>
+        </div>
+        <div class="blog-body">
+          <div class="blog-tag {{ blog.category }}-tag">{{ blog.tag_label }}</div>
+          <h3>{{ blog.title }}</h3>
+          <p>{{ blog.excerpt }}</p>
+          <div class="blog-meta">
+            <span><i class="fa-regular fa-calendar"></i> {{ blog.date }}</span>
+            <span><i class="fa-regular fa-clock"></i> {{ blog.read_time }}</span>
+          </div>
+          <a href="#" class="blog-link">Read More <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+  function filterBlog(category, btn) {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('.blog-card').forEach(card => {
+      card.style.display = (category === 'all' || card.dataset.category === category) ? 'flex' : 'none';
+    });
+  }
+</script>
+{% endblock %}

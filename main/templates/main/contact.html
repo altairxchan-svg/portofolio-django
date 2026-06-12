@@ -1,0 +1,80 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}Contact - Khikam{% endblock %}
+{% block extra_css %}<link rel="stylesheet" href="{% static 'css/contact.css' %}" />{% endblock %}
+
+{% block content %}
+<section class="page-section contact-section">
+  <div class="contact-container">
+    <h2 class="section-title" data-aos="fade-down">Get In <span>Touch</span></h2>
+    <p class="section-sub" data-aos="fade-up">Ada project? Jangan ragu untuk menghubungi saya!</p>
+
+    <div class="contact-layout">
+      <div class="contact-left" data-aos="fade-right" data-aos-duration="1200">
+        <h3>Mari Bekerja Sama!</h3>
+        <p>Saya selalu terbuka untuk peluang baru, kolaborasi, atau sekadar ngobrol soal teknologi. Hubungi saya melalui form atau kontak di bawah ini.</p>
+
+        <div class="contact-info-list">
+          <div class="contact-info-item">
+            <div class="contact-icon"><i class="fa-solid fa-envelope"></i></div>
+            <div><h4>Email</h4><p>khikam.dev@example.com</p></div>
+          </div>
+          <div class="contact-info-item">
+            <div class="contact-icon"><i class="fa-solid fa-phone"></i></div>
+            <div><h4>WhatsApp</h4><p>+62 812-XXXX-XXXX</p></div>
+          </div>
+          <div class="contact-info-item">
+            <div class="contact-icon"><i class="fa-solid fa-location-dot"></i></div>
+            <div><h4>Lokasi</h4><p>Jakarta, Indonesia</p></div>
+          </div>
+          <div class="contact-info-item">
+            <div class="contact-icon"><i class="fa-solid fa-clock"></i></div>
+            <div><h4>Response Time</h4><p>Biasanya dalam 24 jam</p></div>
+          </div>
+        </div>
+
+        <div class="contact-socials">
+          <a href="#" title="GitHub"><i class="fa-brands fa-github"></i></a>
+          <a href="https://www.instagram.com/rainnn_ataraxia" target="_blank" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://www.facebook.com/Uciha.saskeh.712" target="_blank" title="Facebook"><i class="fa-brands fa-facebook"></i></a>
+          <a href="#" title="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+        </div>
+      </div>
+
+      <div class="contact-right" data-aos="fade-left" data-aos-duration="1200">
+        {% if success %}
+        <div class="form-success">
+          <p><i class="fa-solid fa-circle-check"></i> Pesan dari {{ success_name }} berhasil dikirim! Saya akan segera menghubungi kamu.</p>
+        </div>
+        {% endif %}
+
+        <form class="contact-form" method="POST">
+          {% csrf_token %}
+          <div class="form-row">
+            <div class="form-group">
+              <label>Nama Lengkap</label>
+              <input type="text" name="name" placeholder="Masukkan nama kamu" required />
+            </div>
+            <div class="form-group">
+              <label>Email</label>
+              <input type="email" name="email" placeholder="email@example.com" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Subjek</label>
+            <input type="text" name="subject" placeholder="Misal: Request Website Company Profile" required />
+          </div>
+          <div class="form-group">
+            <label>Pesan</label>
+            <textarea name="message" rows="5" placeholder="Ceritakan project atau pertanyaan kamu di sini..." required></textarea>
+          </div>
+          <button type="submit" class="submit-btn">
+            <i class="fa-solid fa-paper-plane"></i> Kirim Pesan
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

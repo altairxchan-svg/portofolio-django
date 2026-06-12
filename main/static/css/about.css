@@ -1,0 +1,149 @@
+/* ══════════════════════════════════
+   ABOUT PAGE
+══════════════════════════════════ */
+.about-section { align-items: center; }
+.about-container { width: 85%; max-width: 1100px; }
+
+.about-hero {
+  display: flex;
+  gap: 3rem;
+  align-items: center;
+  margin-bottom: 3rem;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(204,0,0,0.18);
+  border-radius: 20px;
+  padding: 2.5rem;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+  backdrop-filter: blur(6px);
+}
+
+/* ── FOTO ABOUT ── */
+.about-photo {
+  position: relative;
+  width: 220px;
+  flex-shrink: 0;
+}
+.about-photo img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  object-position: center top;
+  border-radius: 14px;
+  box-shadow:
+    0 0 0 3px var(--red),
+    0 12px 35px rgba(204,0,0,0.4),
+    0 4px 15px rgba(0,0,0,0.5);
+  display: block;
+  position: relative;
+  z-index: 1;
+  transition: transform 0.35s ease;
+}
+.about-photo img:hover {
+  transform: scale(1.04);
+}
+.photo-decor {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 12px;
+  left: 12px;
+  border-radius: 14px;
+  border: 2px solid rgba(204,0,0,0.4);
+  z-index: 0;
+}
+
+.about-intro h3 { font-size: 1.5rem; color: var(--white); margin-bottom: 1rem; }
+.about-intro p { color: rgba(255,255,255,0.7); line-height: 1.75; margin-bottom: 0.8rem; }
+.about-badges { display: flex; flex-wrap: wrap; gap: 10px; margin: 1.2rem 0; }
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(204,0,0,0.12);
+  border: 1px solid rgba(204,0,0,0.35);
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 0.82rem;
+  color: rgba(255,180,180,0.95);
+  font-weight: 500;
+}
+
+/* ── STATS ── */
+.about-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-bottom: 3rem;
+}
+.stat-box {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(204,0,0,0.18);
+  border-radius: 15px;
+  padding: 25px 15px;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  border-top: 3px solid var(--red);
+  transition: 0.3s;
+}
+.stat-box:hover { transform: translateY(-5px); box-shadow: 0 8px 25px rgba(204,0,0,0.25); }
+.stat-box h3 { font-size: 2.2rem; color: var(--red); font-weight: 700; }
+.stat-box p { font-size: 0.85rem; color: rgba(255,255,255,0.55); margin-top: 4px; }
+
+/* ── TIMELINE ── */
+.about-timeline {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(204,0,0,0.15);
+  border-radius: 20px;
+  padding: 2.5rem;
+  box-shadow: 0 6px 25px rgba(0,0,0,0.3);
+}
+.timeline { position: relative; padding-left: 30px; }
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 8px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--red), var(--red-dark));
+}
+.timeline-item { position: relative; margin-bottom: 2rem; }
+.tl-dot {
+  position: absolute;
+  left: -26px;
+  top: 4px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--dark);
+  border: 3px solid var(--red);
+  transition: 0.3s;
+}
+.tl-dot.active { background: var(--red); box-shadow: 0 0 12px rgba(204,0,0,0.6); }
+.tl-year { font-size: 0.78rem; font-weight: 700; color: var(--red); letter-spacing: 1px; }
+.tl-content h4 { font-size: 1rem; color: var(--white); margin: 3px 0; }
+.tl-content p { font-size: 0.88rem; color: rgba(255,255,255,0.55); line-height: 1.5; }
+
+/* ══════════════════════════════════
+   RESPONSIVE — ABOUT
+══════════════════════════════════ */
+@media (max-width: 884px) {
+  .about-hero {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 2rem 1.5rem;
+  }
+  .about-photo { width: 75%; max-width: 220px; }
+  .about-photo img { height: 260px; }
+  .about-badges { justify-content: center; }
+  .about-stats { grid-template-columns: repeat(2, 1fr); }
+  .about-container { width: 95%; }
+}
+@media (max-width: 480px) {
+  .about-photo { max-width: 180px; }
+  .about-photo img { height: 220px; }
+  .about-stats { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .stat-box h3 { font-size: 1.8rem; }
+  .about-timeline { padding: 1.5rem 1rem; }
+}

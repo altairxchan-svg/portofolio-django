@@ -1,0 +1,56 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}Skills - Khikam{% endblock %}
+{% block extra_css %}<link rel="stylesheet" href="{% static 'css/skills.css' %}" />{% endblock %}
+
+{% block content %}
+<section class="page-section skills-section">
+  <div class="skills-container">
+    <h2 class="section-title" data-aos="fade-down">My <span>Skills</span></h2>
+    <p class="section-sub" data-aos="fade-up">Teknologi dan tools yang saya kuasai</p>
+
+    <div class="skills-progress-wrap" data-aos="fade-right" data-aos-duration="1200">
+      <h3 class="sub-title">Skill <span>Level</span></h3>
+      <div class="skill-bar-group">
+        {% for skill in skills %}
+        <div class="skill-bar-item">
+          <div class="skill-bar-label">
+            <span><i class="{{ skill.icon }}"></i> {{ skill.name }}</span>
+            <span>{{ skill.level }}%</span>
+          </div>
+          <div class="skill-bar-track">
+            <div class="skill-bar-fill" style="--w:{{ skill.level }}%"></div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+
+    <h3 class="sub-title" data-aos="fade-down" style="margin-top:3rem;">Tools &amp; <span>Tech Stack</span></h3>
+    <div class="skills-grid" data-aos="fade-up" data-aos-duration="1000">
+      {% for card in skill_cards %}
+      <div class="skill-card" data-aos="zoom-in" data-aos-delay="{{ forloop.counter|add:'0' }}00">
+        <i class="{{ card.icon }}"></i>
+        <h3>{{ card.name }}</h3>
+        <p>{{ card.desc }}</p>
+      </div>
+      {% endfor %}
+    </div>
+
+    <div style="text-align:center; margin-top:2.5rem;" data-aos="zoom-out">
+      <a href="{% url 'contact' %}" class="cta-btn">Hire Me! <i class="fa-solid fa-paper-plane"></i></a>
+    </div>
+  </div>
+</section>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+  window.addEventListener('load', () => {
+    document.querySelectorAll('.skill-bar-fill').forEach(bar => {
+      bar.style.width = getComputedStyle(bar).getPropertyValue('--w');
+    });
+  });
+</script>
+{% endblock %}

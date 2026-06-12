@@ -1,0 +1,76 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}About - Khikam{% endblock %}
+{% block extra_css %}<link rel="stylesheet" href="{% static 'css/about.css' %}" />{% endblock %}
+
+{% block content %}
+<section class="page-section about-section">
+  <div class="about-container">
+    <h2 class="section-title" data-aos="fade-down">About <span>Me</span></h2>
+
+    <div class="about-hero" data-aos="fade-up" data-aos-duration="1200">
+      <div class="about-photo">
+        <img src="{% static 'images/main.jpeg' %}" alt="Khikam" />
+        <div class="photo-decor"></div>
+      </div>
+      <div class="about-intro">
+        <h3>Passionate Developer &amp; Designer</h3>
+        <p>Halo! Saya <strong>Khikam</strong>, seorang Full-Stack Developer muda asal Indonesia yang mencintai dunia pemrograman dan desain web. Saya percaya bahwa kode yang bersih dan tampilan yang indah adalah dua sisi mata uang yang sama pentingnya.</p>
+        <p>Saya mulai belajar coding sejak bangku SMA dan kini terus mengembangkan diri di bidang web development, khususnya menggunakan Django, JavaScript, dan berbagai framework modern.</p>
+        <div class="about-badges">
+          <span class="badge"><i class="fa-solid fa-location-dot"></i> Jakarta, Indonesia</span>
+          <span class="badge"><i class="fa-solid fa-briefcase"></i> Open to Work</span>
+          <span class="badge"><i class="fa-solid fa-graduation-cap"></i> Computer Science</span>
+        </div>
+        <a href="{% url 'contact' %}" class="cta-btn">Hubungi Saya <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+    </div>
+
+    <div class="about-stats" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="200">
+      <div class="stat-box"><h3>2+</h3><p>Tahun Experience</p></div>
+      <div class="stat-box"><h3>15+</h3><p>Project Selesai</p></div>
+      <div class="stat-box"><h3>10+</h3><p>Happy Clients</p></div>
+      <div class="stat-box"><h3>5+</h3><p>Tech Stack</p></div>
+    </div>
+
+    <div class="about-timeline" data-aos="fade-up" data-aos-duration="1200">
+      <h3 class="sub-title">Perjalanan <span>Saya</span></h3>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="tl-dot"></div>
+          <div class="tl-content">
+            <span class="tl-year">2022</span>
+            <h4>Mulai Belajar Web Development</h4>
+            <p>Memulai perjalanan coding dengan HTML, CSS, dan JavaScript dasar.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="tl-dot"></div>
+          <div class="tl-content">
+            <span class="tl-year">2023</span>
+            <h4>Masuk ke Backend Development</h4>
+            <p>Mempelajari PHP, Laravel, dan mulai mengenal Django &amp; Python.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="tl-dot"></div>
+          <div class="tl-content">
+            <span class="tl-year">2024</span>
+            <h4>Freelance &amp; Project Pertama</h4>
+            <p>Menyelesaikan project pertama untuk klien dan mulai membangun portofolio.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="tl-dot active"></div>
+          <div class="tl-content">
+            <span class="tl-year">2025</span>
+            <h4>Full-Stack Developer</h4>
+            <p>Mengerjakan project full-stack dan terus belajar teknologi baru.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
