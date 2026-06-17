@@ -1,5 +1,6 @@
 from django.urls import path
 from . import views
+from .views import kirim_email
 
 urlpatterns = [
     path('',          views.home,     name='home'),
@@ -8,4 +9,6 @@ urlpatterns = [
     path('services/', views.services, name='services'),
     path('blogs/',    views.blogs,    name='blogs'),
     path('contact/',  views.contact,  name='contact'),
+    path('kirim-email/', kirim_email),
+    
 ]

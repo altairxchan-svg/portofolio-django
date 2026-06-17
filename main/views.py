@@ -56,16 +56,21 @@ def contact(request):
         return render(request, 'main/contact.html', {'success': True, 'success_name': name})
     return render(request, 'main/contact.html')
 
+
+
 from django.core.mail import send_mail
 from django.conf import settings
+from django.http import HttpResponse
 
 
 def kirim_email(request):
 
     send_mail(
         'Tes Email',
-        'Halo dari Django di Vercel',
+        'Halo dari Django',
         settings.EMAIL_HOST_USER,
-        ['links7467@gmail.com'],
+        ['links7467.com'],
         fail_silently=False,
     )
+
+    return HttpResponse("Email berhasil dikirim")
