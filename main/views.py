@@ -49,28 +49,41 @@ def blogs(request):
     ]
     return render(request, 'main/blogs.html', {'blogs': blogs})
 
+from django.core.mail import send_mail
+from django.conf import settings
+from django.shortcuts import render
+
 def contact(request):
     if request.method == 'POST':
         name = request.POST.get('name', '')
-        # TODO: kirim email / simpan ke database
-        return render(request, 'main/contact.html', {'success': True, 'success_name': name})
+        email = request.POST.get('email', '')
+        subject = request.POST.get('subject', '')
+        message = request.POST.get('message', '')
+
+        send_mail(
+            subject=f'Portfolio Contact: {subject}',
+            message=f'''
+Nama: {name}
+Email: {email}
+
+Pesan:
+{message}
+''',
+            from_email=settings.EMAIL_HOST_USER,
+            recipient_list=['links7467@gmail.com'],
+            fail_silently=False,
+        )
+
+        return render(
+            request,
+            'main/contact.html',
+            {
+                'success': True,
+                'success_name': name
+            }
+        )
+
     return render(request, 'main/contact.html')
 
 
-
-from django.core.mail import send_mail
-from django.conf import settings
 from django.http import HttpResponse
-
-
-def kirim_email(request):
-
-    send_mail(
-        'Tes Email',
-        'Halo dari Django',
-        settings.EMAIL_HOST_USER,
-        ['links7467.com'],
-        fail_silently=False,
-    )
-
-    return HttpResponse("Email berhasil dikirim")
