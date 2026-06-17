@@ -9,6 +9,7 @@ DEBUG = False
 
 ALLOWED_HOSTS = [
     'portofolio-django-one.vercel.app',
+    'portofolio-django-bk5rwin2c-khikam-s-projects.vercel.app',
 ]
 
 CSRF_TRUSTED_ORIGINS = [
