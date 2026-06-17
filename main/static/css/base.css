@@ -20,10 +20,24 @@
 /* ══════════════════════════════════
    RESET & BASE
 ══════════════════════════════════ */
-* { padding: 0; margin: 0; font-family: "Poppins", sans-serif; box-sizing: border-box; }
-html { overflow-x: hidden; scroll-behavior: smooth; }
-body {
+* { 
+  padding: 0; 
+  margin: 0; 
+  font-family: "Poppins", sans-serif; 
+  box-sizing: border-box; 
+}
+
+/* Kunci utama agar layar HP tidak bisa geser kanan-kiri */
+html, body { 
   width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Memotong paksa semua elemen yang genit keluar jalur */
+  position: relative;
+}
+
+body {
   min-height: 100vh;
   background: linear-gradient(135deg, #0d0d0d 0%, #1a0000 50%, #2a0000 100%);
   background-attachment: fixed;

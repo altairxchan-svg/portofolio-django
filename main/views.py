@@ -45,7 +45,7 @@ def blogs(request):
         {'category': 'javascript',  'icon': 'fa-brands fa-js',                 'tag_label': 'JavaScript', 'title': '10 JavaScript Tips Wajib Tahu',               'excerpt': 'Dari destructuring hingga optional chaining — tingkatkan skill JS kamu.', 'date': '20 Mar 2025', 'read_time': '6 min read'},
         {'category': 'python',      'icon': 'fa-brands fa-python',             'tag_label': 'Python',     'title': 'Django ORM: Tips & Tricks',                   'excerpt': 'Kumpulan tips menggunakan Django ORM secara efisien.',                  'date': '5 Apr 2025',  'read_time': '7 min read'},
         {'category': 'css',         'icon': 'fa-solid fa-wand-magic-sparkles', 'tag_label': 'CSS',        'title': 'CSS Animations yang Bikin Website Hidup',      'excerpt': 'Tutorial membuat animasi CSS yang smooth dan performant.',              'date': '18 Apr 2025', 'read_time': '6 min read'},
-        {'category': 'webdev',      'icon': 'fa-solid fa-shield-halved',       'tag_label': 'Web Dev',    'title': 'Keamanan Web: Ancaman dan Cara Mencegahnya',   'excerpt': 'Pelajari ancaman keamanan web paling umum seperti XSS, CSRF, dan SQL Injection.', 'date': '25 Apr 2025', 'read_time': '9 min read'},
+        {'category': 'Cyberscurity',      'icon': 'fa-solid fa-shield-halved',       'tag_label': 'Cyberscurity',    'title': 'Keamanan Web: Ancaman dan Cara Mencegahnya',   'excerpt': 'Pelajari ancaman keamanan web paling umum seperti XSS, CSRF, dan SQL Injection.', 'date': '25 Apr 2025', 'read_time': '9 min read'},
     ]
     return render(request, 'main/blogs.html', {'blogs': blogs})
 
@@ -55,3 +55,17 @@ def contact(request):
         # TODO: kirim email / simpan ke database
         return render(request, 'main/contact.html', {'success': True, 'success_name': name})
     return render(request, 'main/contact.html')
+
+from django.core.mail import send_mail
+from django.conf import settings
+
+
+def kirim_email(request):
+
+    send_mail(
+        'Tes Email',
+        'Halo dari Django di Vercel',
+        settings.EMAIL_HOST_USER,
+        ['links7467@gmail.com'],
+        fail_silently=False,
+    )

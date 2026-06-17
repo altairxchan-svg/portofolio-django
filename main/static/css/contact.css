@@ -104,7 +104,72 @@
 }
 
 @media (max-width: 884px) {
-  .contact-layout { grid-template-columns: 1fr; }
-  .form-row { grid-template-columns: 1fr; }
-  .contact-container { width: 95%; }
+  /* 1. Paksa container utama pas dengan lebar layar HP */
+  .contact-container { 
+    width: 100% !important; 
+    max-width: 100% !important;
+    padding: 0 15px !important; /* Memberi jarak aman di kiri & kanan layar */
+    margin: 0 auto !important;
+  }
+  
+  /* 2. Ubah grid menjadi 1 kolom penuh dan hilangkan overflow */
+  .contact-layout { 
+    grid-template-columns: 1fr !important; 
+    gap: 30px !important;
+    width: 100% !important;
+    overflow-x: hidden !important;
+  }
+
+  /* 3. Pastikan bagian teks kiri tidak mendorong layar */
+  .contact-left {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  
+  /* 4. Pastikan form kanan muat dan tidak bocor efek visualnya */
+  .contact-right {
+    padding: 20px !important; /* Mengurangi padding dari 35px agar space text lebih luas */
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important; /* Memotong paksa kilauan/garis putih yang keluar */
+  }
+
+  /* 5. Buat baris form vertikal */
+  .form-row { 
+    grid-template-columns: 1fr !important; 
+    gap: 15px !important;
+    width: 100% !important;
+  }
+
+  /* 6. Amankan input & textarea agar tidak melar keluar kotak */
+  .form-group input, 
+  .form-group textarea {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+  .contact-info-item p {
+    font-size: 0.88rem;
+    color: rgba(255, 255, 255, 0.65);
+    
+    /* JURUS AMPUH UNTUK TEKS PANJANG */
+    word-break: break-all;       /* Memaksa teks seperti email melipat ke bawah saat mentok */
+    overflow-wrap: break-word;   /* Alternatif pendukung untuk browser modern */
+  }
+  
+  /* Pastikan item info-nya flex-nya tidak kaku */
+  .contact-info-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(204,0,0,0.15);
+    padding: 14px 18px;
+    border-radius: 12px;
+    
+    /* Tambahkan ini untuk mengamankan flex box di mobile */
+    width: 100%;
+    box-sizing: border-box;
+  }
 }
