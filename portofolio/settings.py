@@ -8,14 +8,13 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 DEBUG = False
 
 ALLOWED_HOSTS = [
-    '.vercel.app',
-    'localhost',
-    '127.0.0.1',
+    ".vercel.app",
+    "localhost",
+    "127.0.0.1",
 ]
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://portofolio-django-one.vercel.app',
-    'https://*.vercel.app',
+    "https://*.vercel.app",
 ]
 
 INSTALLED_APPS = [
