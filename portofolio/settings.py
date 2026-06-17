@@ -4,10 +4,16 @@ import os
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = os.getenv('SECRET_KEY')
+
 DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = [
+    'portofolio-django-one.vercel.app',
+]
 
+CSRF_TRUSTED_ORIGINS = [
+    'https://portofolio-django-one.vercel.app',
+]
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
